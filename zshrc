@@ -25,7 +25,7 @@ _load_settings() {
       esac
     done
 
-    if [ -d "$_dir/post" ]; then
+if [ -d "$_dir/post" ]; then
       for config in "$_dir"/post/**/*~*.zwc(N-.); do
         . $config
       done
@@ -40,5 +40,18 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-. $HOME/.asdf/asdf.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
+
+alias python=python3
+
+export PATH=${PATH}:/usr/local/mysql/bin/
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+export PATH="/Users/danielatkinson/Library/Python/3.9/bin:$PATH"
+
+autoload -Uz compinit
+compinit
